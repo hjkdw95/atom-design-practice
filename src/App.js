@@ -1,7 +1,8 @@
-import title from './components/atoms/title';
+import Menu from './components/atoms/Menu';
+import Title from './components/atoms/Title';
 
 function App() {
-  return title;
+  return <Menu />;
 }
 
 export default App;
