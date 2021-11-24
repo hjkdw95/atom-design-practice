@@ -3,27 +3,18 @@ import Navbar from '../../components/organisms/Navbar';
 import TodoContent from '../../components/organisms/TodoContent';
 import styled from 'styled-components';
 
-const ToDoTemplate = props => {
-  const [toDoTask, setToDo] = useState([
-    { id: 1, content: '밥먹기' },
-    { id: 2, content: '잠자기' },
-    { id: 3, content: '운동하기' },
-  ]);
-
+const ToDoTemplate = ({
+  navTitle,
+  navTitleClass,
+  navList,
+  contentTitle,
+  taskBtn,
+  inputBtn,
+  placeholder,
+}) => {
   const formRef = useRef();
+  const [toDoTask, setToDo] = useState([]);
   const [inputContent, setInputContent] = useState('');
-
-  const NavTitle = 'Atom Todos';
-  const NavTitleClass = 'HeaderTitle';
-  const NavList = [
-    { id: 1, content: 'Todos' },
-    { id: 2, content: 'Movie List' },
-  ];
-  const HEAD_TITLE = 'Task';
-  const DeleteBtn = 'Delete';
-  const SubmitBtn = 'Submit';
-
-  const TODO_INPUT_PLACEHOLDER = 'Click to quickly add a task';
 
   const addItem = e => {
     e.preventDefault();
@@ -45,16 +36,16 @@ const ToDoTemplate = props => {
 
   return (
     <>
-      <Navbar title={NavTitle} titleClass={NavTitleClass} navList={NavList} />
+      <Navbar title={navTitle} titleClass={navTitleClass} navList={navList} />
       <TodoContentWrapper>
         <TodoContent
-          title={HEAD_TITLE}
+          title={contentTitle}
+          taskBtn={taskBtn}
+          inputBtn={inputBtn}
+          placeHolder={placeholder}
           taskContent={toDoTask}
-          taskBtn={DeleteBtn}
-          inputBtn={SubmitBtn}
           formRef={formRef}
           onsubmit={addItem}
-          placeHolder={TODO_INPUT_PLACEHOLDER}
           inputChange={handleInputChange}
           inputBtnType="submit"
           taskBtnType="button"
@@ -69,5 +60,6 @@ export default ToDoTemplate;
 
 const TodoContentWrapper = styled.div`
   width: 30%;
+  min-width: 350px;
   margin: 30px auto;
 `;
