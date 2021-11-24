@@ -1,11 +1,7 @@
-import Button from './components/atoms/Button';
-import ListContent from './components/atoms/ListContent';
-import Menu from './components/atoms/Menu';
-import Title from './components/atoms/Title';
-import theme from './styles/theme';
+import ToDoPage from './pages/todos/ToDoPage';
 
 function App() {
-  return <Button />;
+  return <ToDoPage />;
 }
 
 export default App;

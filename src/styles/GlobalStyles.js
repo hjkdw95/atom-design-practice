@@ -37,7 +37,7 @@ body {
 	line-height: 1;
 	background-color: #F9F9F9;
 }
-ol, ul {
+ol, ul, li {
 	list-style: none;
 }
 blockquote, q {
