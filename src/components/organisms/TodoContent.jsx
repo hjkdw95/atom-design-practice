@@ -5,22 +5,19 @@ import TodoList from '../molecules/TodoList';
 import theme from '../../styles/theme';
 import styled from 'styled-components';
 
-const TodoContent = props => {
-  const TASK = ['밥먹기', '잠자기', '운동하기'];
-  const DeleteBtn = 'Delete';
-
+const TodoContent = ({ title, taskContent, taskBtn, inputBtn }) => {
   return (
     <TodoOrganism>
       <TitleWrapper>
-        <Title content="Task" titleClass="contentTitle" />
+        <Title content={title} titleClass="contentTitle" />
       </TitleWrapper>
       <StyledUl>
-        {TASK.map(item => (
-          <TodoList content={item} btnContent={DeleteBtn} />
+        {taskContent.map(item => (
+          <TodoList content={item} btnContent={taskBtn} />
         ))}
       </StyledUl>
       <InputWrapper>
-        <InputSet />
+        <InputSet btnContent={inputBtn} />
       </InputWrapper>
     </TodoOrganism>
   );
@@ -39,6 +36,7 @@ const TitleWrapper = styled.div`
 `;
 
 const StyledUl = styled.ul`
+  height: 400px;
   padding: 0 25px 10px 25px;
 `;
 

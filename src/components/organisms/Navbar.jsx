@@ -3,13 +3,11 @@ import Title from '../atoms/Title';
 import NavList from '../molecules/NavList';
 import styled from 'styled-components';
 
-const Navbar = props => {
-  const LIST = ['Todos', 'MovieList'];
-
+const Navbar = ({ title, titleClass, navList }) => {
   return (
     <StyledNavbar>
-      <Title content={'Atom Todos'} titleClass="HeaderTitle" />
-      <NavList lists={LIST} />
+      <Title content={title} titleClass={titleClass} />
+      <NavList lists={navList} />
     </StyledNavbar>
   );
 };

@@ -4,13 +4,11 @@ import Input from '../atoms/Input';
 import theme from '../../styles/theme';
 import styled from 'styled-components';
 
-const InputSet = props => {
-  const SubmitBtn = 'Submit';
-
+const InputSet = ({ btnContent }) => {
   return (
     <StyledInputSet>
       <Input />
-      <Button color={theme.blue} content={SubmitBtn} />
+      <Button color={theme.blue} content={btnContent} />
     </StyledInputSet>
   );
 };
