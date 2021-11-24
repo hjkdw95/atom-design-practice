@@ -7,6 +7,7 @@ const Menu = props => {
 export default Menu;
 
 const StyledMenu = styled.a`
+  color: ${props => props.theme.black};
   font-size: 15px;
   line-height: 21px;
 `;
