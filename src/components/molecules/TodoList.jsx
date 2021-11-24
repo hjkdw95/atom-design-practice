@@ -4,14 +4,11 @@ import Button from '../atoms/Button';
 import theme from '../../styles/theme';
 import styled from 'styled-components';
 
-const TodoList = props => {
-  const LIST = '밥먹기';
-  const DeleteBtn = 'Delete';
-
+const TodoList = ({ content, btnContent }) => {
   return (
     <StyledLi>
-      <ListContent color={theme.black} content={LIST} />
-      <Button color={theme.lightGrey} content={DeleteBtn} />
+      <ListContent color={theme.black} content={content} />
+      <Button color={theme.lightGrey} content={btnContent} />
     </StyledLi>
   );
 };
@@ -20,4 +17,5 @@ export default TodoList;
 const StyledLi = styled.li`
   display: flex;
   justify-content: space-between;
+  padding-bottom: 5px;
 `;
