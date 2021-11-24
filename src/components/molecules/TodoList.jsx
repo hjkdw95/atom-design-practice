@@ -5,11 +5,16 @@ import theme from '../../styles/theme';
 import styled from 'styled-components';
 import Form from '../atoms/Form';
 
-const TodoList = ({ content, btnContent, btnType }) => {
+const TodoList = ({ content, btnContent, btnType, btnClick, id }) => {
   return (
-    <StyledLi>
+    <StyledLi id={id}>
       <ListContent color={theme.black} content={content} />
-      <Button type={btnType} color={theme.lightGrey} content={btnContent} />
+      <Button
+        type={btnType}
+        color={theme.lightGrey}
+        content={btnContent}
+        btnClick={btnClick}
+      />
     </StyledLi>
   );
 };

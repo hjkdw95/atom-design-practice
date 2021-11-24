@@ -14,6 +14,7 @@ const TodoContent = ({
   onsubmit,
   inputBtnType,
   taskBtnType,
+  btnClick,
 }) => {
   return (
     <TodoOrganism>
@@ -24,9 +25,11 @@ const TodoContent = ({
         {taskContent.map(item => (
           <TodoList
             key={item.id}
+            id={item.id}
             content={item.content}
             btnContent={taskBtn}
             btnType={taskBtnType}
+            btnClick={btnClick}
           />
         ))}
       </StyledUl>

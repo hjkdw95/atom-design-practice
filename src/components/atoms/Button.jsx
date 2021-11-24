@@ -1,9 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = ({ type, content, color }) => {
+const Button = ({ type, content, color, btnClick }) => {
+  const handleClick = (e, type) => {
+    type === 'button' ? btnClick(e) : '';
+  };
+
   return (
-    <StyledButton type={type} style={{ color }}>
+    <StyledButton
+      type={type}
+      style={{ color }}
+      onClick={e => handleClick(e, type)}
+    >
       {content}
     </StyledButton>
   );

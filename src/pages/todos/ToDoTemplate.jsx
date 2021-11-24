@@ -25,6 +25,12 @@ const ToDoTemplate = props => {
     console.log('did');
   };
 
+  const handleClick = e => {
+    const currentId = e.target.parentNode.id;
+    const newTaskList = toDoTask.filter(item => item.id !== +currentId);
+    setToDo(newTaskList);
+  };
+
   return (
     <>
       <Navbar title={NavTitle} titleClass={NavTitleClass} navList={NavList} />
@@ -37,6 +43,7 @@ const ToDoTemplate = props => {
           onsubmit={handleSubmit}
           inputBtnType="submit"
           taskBtnType="button"
+          btnClick={handleClick}
         />
       </TodoContentWrapper>
     </>
