@@ -58,6 +58,7 @@ a{
 button{
 	border: none;
 	background-color: transparent;
+	font-weight: 400;
 }
 input {
 	&:focus {
