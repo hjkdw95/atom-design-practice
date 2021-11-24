@@ -5,11 +5,18 @@ import Input from '../atoms/Input';
 import theme from '../../styles/theme';
 import styled from 'styled-components';
 
-const InputSet = ({ btnType, btnContent, onsubmit }) => {
+const InputSet = ({
+  btnType,
+  btnContent,
+  onsubmit,
+  inputChange,
+  placeHolder,
+  formRef,
+}) => {
   return (
-    <Form onsubmit={onsubmit}>
+    <Form formRef={formRef} onsubmit={onsubmit}>
       <StyledInputSet>
-        <Input />
+        <Input inputChange={inputChange} placeHolder={placeHolder} />
         <Button type={btnType} color={theme.blue} content={btnContent} />
       </StyledInputSet>
     </Form>

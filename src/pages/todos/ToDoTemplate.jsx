@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Navbar from '../../components/organisms/Navbar';
 import TodoContent from '../../components/organisms/TodoContent';
 import styled from 'styled-components';
@@ -10,6 +10,9 @@ const ToDoTemplate = props => {
     { id: 3, content: '운동하기' },
   ]);
 
+  const formRef = useRef();
+  const [inputContent, setInputContent] = useState('');
+
   const NavTitle = 'Atom Todos';
   const NavTitleClass = 'HeaderTitle';
   const NavList = [
@@ -20,15 +23,24 @@ const ToDoTemplate = props => {
   const DeleteBtn = 'Delete';
   const SubmitBtn = 'Submit';
 
-  const handleSubmit = e => {
+  const TODO_INPUT_PLACEHOLDER = 'Click to quickly add a task';
+
+  const addItem = e => {
     e.preventDefault();
-    console.log('did');
+    const newTask = { id: Date.now(), content: inputContent };
+    const newTaskList = [...toDoTask, newTask];
+    setToDo(newTaskList);
+    formRef.current.reset();
   };
 
-  const handleClick = e => {
+  const deleteItem = e => {
     const currentId = e.target.parentNode.id;
     const newTaskList = toDoTask.filter(item => item.id !== +currentId);
     setToDo(newTaskList);
+  };
+
+  const handleInputChange = e => {
+    setInputContent(e.target.value);
   };
 
   return (
@@ -40,10 +52,13 @@ const ToDoTemplate = props => {
           taskContent={toDoTask}
           taskBtn={DeleteBtn}
           inputBtn={SubmitBtn}
-          onsubmit={handleSubmit}
+          formRef={formRef}
+          onsubmit={addItem}
+          placeHolder={TODO_INPUT_PLACEHOLDER}
+          inputChange={handleInputChange}
           inputBtnType="submit"
           taskBtnType="button"
-          btnClick={handleClick}
+          btnClick={deleteItem}
         />
       </TodoContentWrapper>
     </>

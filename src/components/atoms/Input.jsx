@@ -2,12 +2,13 @@ import React from 'react';
 import theme from '../../styles/theme';
 import styled from 'styled-components';
 
-const Input = () => {
-  const TODO_INPUT_PLACEHOLDER = 'Click to quickly add a task';
-
+const Input = ({ placeHolder, inputChange }) => {
   return (
     <InputWrapper>
-      <StyledInput placeholder={TODO_INPUT_PLACEHOLDER}></StyledInput>
+      <StyledInput
+        placeholder={placeHolder}
+        onChange={inputChange}
+      ></StyledInput>
     </InputWrapper>
   );
 };

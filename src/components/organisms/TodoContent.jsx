@@ -15,6 +15,9 @@ const TodoContent = ({
   inputBtnType,
   taskBtnType,
   btnClick,
+  placeHolder,
+  inputChange,
+  formRef,
 }) => {
   return (
     <TodoOrganism>
@@ -35,9 +38,12 @@ const TodoContent = ({
       </StyledUl>
       <InputWrapper>
         <InputSet
+          inputChange={inputChange}
+          placeHolder={placeHolder}
           onsubmit={onsubmit}
           btnType={inputBtnType}
           btnContent={inputBtn}
+          formRef={formRef}
         />
       </InputWrapper>
     </TodoOrganism>
