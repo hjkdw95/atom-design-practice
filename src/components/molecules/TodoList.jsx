@@ -3,12 +3,13 @@ import ListContent from '../atoms/ListContent';
 import Button from '../atoms/Button';
 import theme from '../../styles/theme';
 import styled from 'styled-components';
+import Form from '../atoms/Form';
 
-const TodoList = ({ content, btnContent }) => {
+const TodoList = ({ content, btnContent, btnType }) => {
   return (
     <StyledLi>
       <ListContent color={theme.black} content={content} />
-      <Button color={theme.lightGrey} content={btnContent} />
+      <Button type={btnType} color={theme.lightGrey} content={btnContent} />
     </StyledLi>
   );
 };

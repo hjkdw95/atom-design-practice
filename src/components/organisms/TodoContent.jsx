@@ -4,8 +4,17 @@ import InputSet from '../molecules/InputSet';
 import TodoList from '../molecules/TodoList';
 import theme from '../../styles/theme';
 import styled from 'styled-components';
+import Form from '../atoms/Form';
 
-const TodoContent = ({ title, taskContent, taskBtn, inputBtn }) => {
+const TodoContent = ({
+  title,
+  taskContent,
+  taskBtn,
+  inputBtn,
+  onsubmit,
+  inputBtnType,
+  taskBtnType,
+}) => {
   return (
     <TodoOrganism>
       <TitleWrapper>
@@ -13,11 +22,20 @@ const TodoContent = ({ title, taskContent, taskBtn, inputBtn }) => {
       </TitleWrapper>
       <StyledUl>
         {taskContent.map(item => (
-          <TodoList content={item} btnContent={taskBtn} />
+          <TodoList
+            key={item.id}
+            content={item.content}
+            btnContent={taskBtn}
+            btnType={taskBtnType}
+          />
         ))}
       </StyledUl>
       <InputWrapper>
-        <InputSet btnContent={inputBtn} />
+        <InputSet
+          onsubmit={onsubmit}
+          btnType={inputBtnType}
+          btnContent={inputBtn}
+        />
       </InputWrapper>
     </TodoOrganism>
   );

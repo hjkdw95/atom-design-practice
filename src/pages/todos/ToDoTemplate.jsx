@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/organisms/Navbar';
 import TodoContent from '../../components/organisms/TodoContent';
 import styled from 'styled-components';
 
 const ToDoTemplate = props => {
+  const [toDoTask, setToDo] = useState([
+    { id: 1, content: '밥먹기' },
+    { id: 2, content: '잠자기' },
+    { id: 3, content: '운동하기' },
+  ]);
+
   const NavTitle = 'Atom Todos';
   const NavTitleClass = 'HeaderTitle';
-  const NavList = ['Todos', 'MovieList'];
+  const NavList = [
+    { id: 1, content: 'Todos' },
+    { id: 2, content: 'Movie List' },
+  ];
   const HEAD_TITLE = 'Task';
-  const TASK = ['밥먹기', '잠자기', '운동하기'];
   const DeleteBtn = 'Delete';
   const SubmitBtn = 'Submit';
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('did');
+  };
 
   return (
     <>
@@ -18,9 +31,12 @@ const ToDoTemplate = props => {
       <TodoContentWrapper>
         <TodoContent
           title={HEAD_TITLE}
-          taskContent={TASK}
+          taskContent={toDoTask}
           taskBtn={DeleteBtn}
           inputBtn={SubmitBtn}
+          onsubmit={handleSubmit}
+          inputBtnType="submit"
+          taskBtnType="button"
         />
       </TodoContentWrapper>
     </>

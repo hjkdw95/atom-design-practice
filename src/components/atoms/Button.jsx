@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = ({ content, color }) => {
+const Button = ({ type, content, color }) => {
   return (
-    <StyledButton type="button" style={{ color }}>
+    <StyledButton type={type} style={{ color }}>
       {content}
     </StyledButton>
   );

@@ -6,8 +6,8 @@ const NavList = ({ lists }) => {
   return (
     <StyledUl>
       {lists.map(item => (
-        <StyledLi>
-          <Menu content={item} />
+        <StyledLi key={item.id}>
+          <Menu content={item.content} />
         </StyledLi>
       ))}
     </StyledUl>
